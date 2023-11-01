@@ -1,9 +1,22 @@
 #include <stdio.h>
-#include "Test.h"
+#include "StirlingEngine.h"
 
-int main()
+class Sandbox : public StirlingEngine::Game
 {
-	printf("Hello World!\n");
-	SFMLTest().Run();
-	return 0;
+public:
+	Sandbox() {}
+	~Sandbox() {}
+
+	void OnStart() {
+		printf("Start");
+	}
+	void OnUpdate() {}
+	void OnExit() {}
+};
+
+
+// Defined engine side
+StirlingEngine::Game* StirlingEngine::CreateGame()
+{
+	return new Sandbox();
 }
