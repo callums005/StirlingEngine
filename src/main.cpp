@@ -4,19 +4,23 @@
 class Sandbox : public StirlingEngine::Game
 {
 public:
-	Sandbox() {}
-	~Sandbox() {}
+	Sandbox()
+	{
+	}
+	~Sandbox()
+	{
+	}
 
-	void OnStart() {
-		printf("Start");
+	void OnStart()
+	{
+		printf("Start\n");
 	}
 	void OnUpdate() {}
 	void OnExit() {}
 };
 
-
 // Defined engine side
-StirlingEngine::Game* StirlingEngine::CreateGame()
+StirlingEngine::Game *StirlingEngine::CreateGame()
 {
 	return new Sandbox();
 }
