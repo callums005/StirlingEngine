@@ -6,7 +6,7 @@ This is a 2 Dimentional Game Engine programmed in C++ using the Simple and Fast 
 ## Roadmap
 ```mermaid
 graph TD;
-  BS("Build System") --> Merge("Migrate Pre-existing C# engine code to C++");
+  Merge("Migrate Pre-existing C# engine code to C++");
   Merge --> Docs1("Write Documentation for existing code");
   Docs1 --> Texture("2D Texture Rendering");
   Texture --> Physics("Physics Engine - Box2D");
