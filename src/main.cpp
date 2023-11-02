@@ -11,10 +11,7 @@ public:
 	{
 	}
 
-	void OnStart()
-	{
-		printf("Start\n");
-	}
+	void OnStart() {}
 	void OnUpdate() {}
 	void OnExit() {}
 };
