@@ -19,9 +19,8 @@ graph TD;
 ## Getting Started
 ### [Compiling Documentation](docs/COMPILING.md)
 A step-by-step documentation on compiling the Stirling Engine
-<!-- ### [Starting a New Project](docs/NEW_PROJ.md)
-A guide on how to start a new project using the Stirling Engine -->
-
+### [Documentation](docs/Manual/Documentation.md)
+Full documentation for the engine and API
 
 ## Contributing
 The Stirling Engine project would love your contribution, please read the [CONTRIBUTING.md](docs/CONTRIBUTING.md)
