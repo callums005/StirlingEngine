@@ -7,5 +7,5 @@ To be documented
 ### [Game](Manual/Engine/Game.md)
 The base class to interface with the engine. Required in all projects.
 
-### [Window](Manual/Window.md)
+### [Window](Manual/Engine/Window.md)
 Stores information about the window along with wrappers for the SFML API.
