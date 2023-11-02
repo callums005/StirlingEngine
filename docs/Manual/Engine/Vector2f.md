@@ -73,10 +73,10 @@ Vector2f operator*(const Vector2f &rhs) const;
 
 **Paramaters:** `const Vector2f&`
 
-**Returns:** `Vector2f`
+**Returns:** `void`
 
 ```cpp
-Vector2f operator+=(const Vector2f &rhs) const;
+void operator+=(const Vector2f &rhs) const;
 ```
 
 ---
@@ -84,10 +84,10 @@ Vector2f operator+=(const Vector2f &rhs) const;
 
 **Paramaters:** `const Vector2f&`
 
-**Returns:** `Vector2f`
+**Returns:** `void`
 
 ```cpp
-Vector2f operator-=(const Vector2f &rhs) const;
+void operator-=(const Vector2f &rhs) const;
 ```
 
 ---

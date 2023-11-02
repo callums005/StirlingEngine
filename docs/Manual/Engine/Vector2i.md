@@ -73,10 +73,10 @@ Vector2i operator*(const Vector2i &rhs) const;
 
 **Paramaters:** `const Vector2i&`
 
-**Returns:** `Vector2i`
+**Returns:** `void`
 
 ```cpp
-Vector2i operator+=(const Vector2i &rhs) const;
+void operator+=(const Vector2i &rhs) const;
 ```
 
 ---
@@ -84,10 +84,10 @@ Vector2i operator+=(const Vector2i &rhs) const;
 
 **Paramaters:** `const Vector2i&`
 
-**Returns:** `Vector2i`
+**Returns:** `void`
 
 ```cpp
-Vector2i operator-=(const Vector2i &rhs) const;
+void operator-=(const Vector2i &rhs) const;
 ```
 
 ---
