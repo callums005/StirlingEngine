@@ -19,13 +19,10 @@ namespace StirlingEngine
 		virtual void OnUpdate() = 0;
 		virtual void OnExit() = 0;
 
-		void SetWindow()
-		{
-			m_Window = new Window(400, 400, "Hello World");
-		}
+		void SetWindow();
 
 		Window *GetWindow();
-		std::pair<uint, uint> GetWindowSize();
+		std::pair<unsigned int, unsigned int> GetWindowSize();
 	};
 
 	// Defined on game side

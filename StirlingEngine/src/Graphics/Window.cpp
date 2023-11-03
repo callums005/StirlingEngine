@@ -2,7 +2,7 @@
 
 namespace StirlingEngine
 {
-	Window::Window(uint width, uint height, std::string title)
+	Window::Window(unsigned int width, unsigned int height, std::string title)
 		: m_Width(width), m_Height(height), m_Title(title)
 	{
 		m_Window = new sf::RenderWindow(sf::VideoMode(m_Width, m_Height), m_Title);
@@ -36,9 +36,9 @@ namespace StirlingEngine
 		m_Window->close();
 	}
 
-	std::pair<uint, uint> Window::GetSize()
+	std::pair<unsigned int, unsigned int> Window::GetSize()
 	{
-		return std::pair<uint, uint>(m_Width, m_Height);
+		return std::pair<unsigned int, unsigned int>(m_Width, m_Height);
 	}
 
 	std::string Window::GetTitle()

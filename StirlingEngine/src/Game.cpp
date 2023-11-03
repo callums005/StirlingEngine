@@ -33,7 +33,12 @@ namespace StirlingEngine
 		return m_Window;
 	}
 
-	std::pair<uint, uint> Game::GetWindowSize()
+	void Game::SetWindow()
+	{
+		m_Window = new Window(400, 400, "Hello World");
+	}
+
+	std::pair<unsigned int, unsigned int> Game::GetWindowSize()
 	{
 		return m_Window->GetSize();
 	}

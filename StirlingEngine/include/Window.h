@@ -11,11 +11,11 @@ namespace StirlingEngine
 	private:
 		sf::RenderWindow *m_Window;
 
-		uint m_Width, m_Height;
+		unsigned int m_Width, m_Height;
 		std::string m_Title;
 
 	public:
-		Window(uint width, uint height, std::string title);
+		Window(unsigned int width, unsigned int height, std::string title);
 
 		~Window();
 
@@ -24,7 +24,7 @@ namespace StirlingEngine
 		void Render();
 		void Close();
 
-		std::pair<uint, uint> GetSize();
+		std::pair<unsigned int, unsigned int> GetSize();
 		std::string GetTitle();
 	};
 }

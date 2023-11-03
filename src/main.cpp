@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include "StirlingEngine.h"
 
 class Sandbox : public StirlingEngine::Game

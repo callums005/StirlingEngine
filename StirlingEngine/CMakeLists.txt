@@ -18,6 +18,7 @@ FetchContent_MakeAvailable(SFML)
 
 add_library(${PROJECT_NAME} STATIC ${SOURCE_DIR})
 target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include)
+target_include_directories(${PROJECT_NAME} PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/vendor/sfml/include)
 target_link_libraries(${PROJECT_NAME} PRIVATE sfml-graphics)
 
 install(TARGETS ${PROJECT_NAME})

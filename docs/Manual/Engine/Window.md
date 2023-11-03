@@ -11,14 +11,14 @@ sf::RenderWindow* m_Window;
 
 `m_Width` stores an unsigned integer of the window's width.
 ```cpp
-uint m_Width;
+unsigned int m_Width;
 ```
 
 ---
 
 `m_Height` stores an unsigned integer of the window's height.
 ```cpp
-uint m_Height;
+unsigned int m_Height;
 ```
 
 `m_Title` stores a string of the window's title.
@@ -28,7 +28,7 @@ std::string m_Width;
 
 ## Constructor
 ```cpp
-Window(uint width, uint height, std::string title);
+Window(unsigned int width, unsigned int height, std::string title);
 ```
 
 ## Deconstructor
@@ -88,10 +88,10 @@ void Close();
 
 **Paramaters:** `None`
 
-**Returns:** `std::pair<uint, uint>`
+**Returns:** `std::pair<unsigned int, unsigned int>`
 
 ```cpp
-std::pair<uint, uint> GetSize();
+std::pair<unsigned int, unsigned int> GetSize();
 ```
 
 ---
