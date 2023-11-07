@@ -27,4 +27,4 @@ namespace StirlingEngine
 
 	// Defined on game side
 	Game *CreateGame();
-};
+}

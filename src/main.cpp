@@ -10,7 +10,14 @@ public:
 	{
 	}
 
-	void OnStart() {}
+	void OnStart() {
+		StirlingEngine::Debug::Log(StirlingEngine::DebugLevel::Info, "Hello World");
+		StirlingEngine::Debug::Log(StirlingEngine::DebugLevel::Debug, "Hello World");
+		StirlingEngine::Debug::Log(StirlingEngine::DebugLevel::Warning, "Hello World");
+		StirlingEngine::Debug::Log(StirlingEngine::DebugLevel::Error, "Hello World");
+		StirlingEngine::Debug::Log(StirlingEngine::DebugLevel::Critical, "Hello World");
+		StirlingEngine::Debug::Log((StirlingEngine::DebugLevel)5, "Hello World");
+	}
 	void OnUpdate() {}
 	void OnExit() {}
 };
