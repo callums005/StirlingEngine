@@ -8,12 +8,6 @@ namespace StirlingEngine
 {
 	class Window
 	{
-	private:
-		sf::RenderWindow *m_Window;
-
-		unsigned int m_Width, m_Height;
-		std::string m_Title;
-
 	public:
 		Window(unsigned int width, unsigned int height, std::string title);
 
@@ -26,5 +20,11 @@ namespace StirlingEngine
 
 		std::pair<unsigned int, unsigned int> GetSize();
 		std::string GetTitle();
+
+	private:
+		sf::RenderWindow *m_Window;
+
+		unsigned int m_Width, m_Height;
+		std::string m_Title;
 	};
 }

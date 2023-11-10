@@ -6,9 +6,6 @@ namespace StirlingEngine
 {
 	class Game
 	{
-	private:
-		Window *m_Window = nullptr;
-
 	public:
 		Game();
 		~Game();
@@ -23,6 +20,9 @@ namespace StirlingEngine
 
 		Window *GetWindow();
 		std::pair<unsigned int, unsigned int> GetWindowSize();
+
+	private:
+		Window *m_Window = nullptr;
 	};
 
 	// Defined on game side
