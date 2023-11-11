@@ -7,6 +7,7 @@
 
 #include "WindowEvent.h"
 #include "KeyboardEvent.h"
+#include "MouseEvent.h"
 
 namespace StirlingEngine
 {
@@ -43,6 +44,9 @@ namespace StirlingEngine
 		std::unique_ptr<WindowMoveEvent> WindowMoveEvent;
 		std::unique_ptr<WindowResizeEvent> WindowResizeEvent;
 		std::unique_ptr<KeyEvent> KeyEvent;
+		std::unique_ptr<MouseMoveEvent> MouseMoveEvent;
+		std::unique_ptr<MouseButtonEvent> MouseButtonEvent;
+		std::unique_ptr<MouseSctrollEvent> MouseScrollEvent;
 
 	private:
 		unsigned int m_Id;
