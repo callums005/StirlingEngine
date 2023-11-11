@@ -6,6 +6,7 @@ namespace StirlingEngine
 		: m_Width(width), m_Height(height), m_Title(title)
 	{
 		m_Window = new sf::RenderWindow(sf::VideoMode(m_Width, m_Height), m_Title);
+		m_Window->setFramerateLimit(60);
 	}
 
 	Window::~Window()

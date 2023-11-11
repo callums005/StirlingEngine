@@ -14,24 +14,24 @@ namespace StirlingEngine
 		switch (type)
 		{
 		case EventType::OnWindowResize:
-			event->WindowResizeEvent = std::unique_ptr<WindowResizeEvent>(new WindowResizeEvent());
+			event->OnWindowResizeEvent = std::unique_ptr<WindowResizeEvent>(new WindowResizeEvent());
 			break;
 		case EventType::OnWindowMove:
-			event->WindowMoveEvent = std::unique_ptr<WindowMoveEvent>(new WindowMoveEvent());
+			event->OnWindowMoveEvent = std::unique_ptr<WindowMoveEvent>(new WindowMoveEvent());
 			break;
 		case EventType::OnMouseMove:
-			event->MouseMoveEvent = std::unique_ptr<MouseMoveEvent>(new MouseMoveEvent());
+			event->OnMouseMoveEvent = std::unique_ptr<MouseMoveEvent>(new MouseMoveEvent());
 			break;
 		case EventType::OnMouseScroll:
-			event->MouseScrollEvent = std::unique_ptr<MouseSctrollEvent>(new MouseSctrollEvent());
+			event->OnMouseScrollEvent = std::unique_ptr<MouseSctrollEvent>(new MouseSctrollEvent());
 			break;
 		case EventType::OnMouseDown:
 		case EventType::OnMouseUp:
-			event->MouseButtonEvent = std::unique_ptr<MouseButtonEvent>(new MouseButtonEvent());
+			event->OnMouseButtonEvent = std::unique_ptr<MouseButtonEvent>(new MouseButtonEvent());
 			break;
 		case EventType::OnKeyDown:
 		case EventType::OnKeyUp:
-			event->KeyEvent = std::unique_ptr<KeyEvent>(new KeyEvent());
+			event->OnKeyEvent = std::unique_ptr<KeyEvent>(new KeyEvent());
 			break;
 		}
 
@@ -41,7 +41,7 @@ namespace StirlingEngine
 		return event->GetId();
 	}
 
-	bool EventDispatcher::DispatchEvent(EventType dispatchType, std::string eventName = "", bool markAsHandled = false)
+	bool EventDispatcher::DispatchEvent(EventType dispatchType, std::string eventName, bool markAsHandled)
 	{
 
 		for (auto e : m_Events)
@@ -92,6 +92,6 @@ namespace StirlingEngine
 				return event->GetId();
 		}
 
-		return NULL;
+		return 0;
 	}
 }

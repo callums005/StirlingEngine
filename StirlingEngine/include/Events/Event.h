@@ -11,7 +11,8 @@
 
 namespace StirlingEngine
 {
-	const enum EventType {
+	enum EventType
+	{
 		OnApplicationStart = 1,
 		OnApplicationUpdate,
 		OnApplicationExit,
@@ -46,12 +47,12 @@ namespace StirlingEngine
 			m_Callbacks.push_back(func);
 		}
 
-		std::unique_ptr<WindowMoveEvent> WindowMoveEvent;
-		std::unique_ptr<WindowResizeEvent> WindowResizeEvent;
-		std::unique_ptr<KeyEvent> KeyEvent;
-		std::unique_ptr<MouseMoveEvent> MouseMoveEvent;
-		std::unique_ptr<MouseButtonEvent> MouseButtonEvent;
-		std::unique_ptr<MouseSctrollEvent> MouseScrollEvent;
+		std::unique_ptr<WindowMoveEvent> OnWindowMoveEvent;
+		std::unique_ptr<WindowResizeEvent> OnWindowResizeEvent;
+		std::unique_ptr<KeyEvent> OnKeyEvent;
+		std::unique_ptr<MouseMoveEvent> OnMouseMoveEvent;
+		std::unique_ptr<MouseButtonEvent> OnMouseButtonEvent;
+		std::unique_ptr<MouseSctrollEvent> OnMouseScrollEvent;
 
 		/// @brief Set the value of the handled flag
 		/// @param value What to set the handled flag to

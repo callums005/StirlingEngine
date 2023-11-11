@@ -2,20 +2,20 @@
 
 namespace StirlingEngine
 {
-	void Debug::Log(const char* fmt, ...)
+	void Debug::Log(const char *fmt, ...)
 	{
 		va_list vargs;
 		va_start(vargs, fmt);
-		printf("\033[%s;m[%s]\t", "90", "[INFO] ");
+		printf("\033[%s;m%s\t", "90", "[INFO] ");
 		vprintf(fmt, vargs);
 		printf("\033[0;m\n");
 		va_end(vargs);
 	}
 
-	void Debug::Log(const DebugLevel debugLevel, const char* fmt, ...)
+	void Debug::Log(const DebugLevel debugLevel, const char *fmt, ...)
 	{
-		const char* prefix = "";
-		const char* colour = "";
+		const char *prefix = "";
+		const char *colour = "";
 
 		switch (debugLevel)
 		{

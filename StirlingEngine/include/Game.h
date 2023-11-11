@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Window.h"
+#include "Events/EventDispatcher.h"
 
 namespace StirlingEngine
 {

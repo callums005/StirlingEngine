@@ -22,7 +22,7 @@ namespace StirlingEngine
 		/// @param eventName The name of the event to dispatch (only if user-defined event)
 		/// @param markAsHandled Whether or not to mark the event has handled
 		/// @return Returns true if the event dispatches correctly
-		static bool DispatchEvent(EventType dispatchType, std::string eventName = "", bool markAsHandled = false);
+		static bool DispatchEvent(EventType dispatchType, std::string eventName = std::string(""), bool markAsHandled = false);
 
 		/// @brief Get the event by Id
 		/// @param eventId The id of the event you want to get
