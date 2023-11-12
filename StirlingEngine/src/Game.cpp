@@ -29,6 +29,8 @@ namespace StirlingEngine
 		EventDispatcher::DispatchEvent(EventType::OnApplicationStart, "", true);
 		OnStart();
 
+		Input::Init();
+
 		while (m_Window->IsOpen())
 		{
 			EventDispatcher::DispatchEvent(EventType::OnApplicationUpdate, "", true);

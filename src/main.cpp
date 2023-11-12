@@ -12,11 +12,6 @@ public:
 	{
 	}
 
-	void LogKeyPress(StirlingEngine::Event &e)
-	{
-		StirlingEngine::Debug::Log("KEY PRESSED: %i", e.OnKeyEvent->KeyCode);
-	}
-
 	void OnStart()
 	{
 		StirlingEngine::Debug::Log(StirlingEngine::DebugLevel::Info, "Hello World");
@@ -25,10 +20,12 @@ public:
 		StirlingEngine::Debug::Log(StirlingEngine::DebugLevel::Error, "Hello World");
 		StirlingEngine::Debug::Log(StirlingEngine::DebugLevel::Critical, "Hello World");
 		StirlingEngine::Debug::Log((StirlingEngine::DebugLevel)5, "Hello World");
-
-		StirlingEngine::EventDispatcher::GetEventByName("OnKeyDown") += Subscribe(LogKeyPress);
 	}
-	void OnUpdate() {}
+	void OnUpdate()
+	{
+		if (StirlingEngine::Input::IsKeyDown(StirlingEngine::Key::KEY_SPACE))
+			StirlingEngine::Debug::Log("Space bar is pressed");
+	}
 	void OnExit() {}
 };
 

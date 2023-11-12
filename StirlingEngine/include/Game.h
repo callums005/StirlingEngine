@@ -2,6 +2,7 @@
 
 #include "Window.h"
 #include "Events/EventDispatcher.h"
+#include "Input.h"
 
 namespace StirlingEngine
 {

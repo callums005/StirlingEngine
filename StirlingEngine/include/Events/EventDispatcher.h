@@ -15,7 +15,7 @@ namespace StirlingEngine
 		/// @param name The name of the event
 		/// @param type The type of the event
 		/// @return Event ID
-		static unsigned int GenerateEvent(std::string name, EventType type);
+		static unsigned int GenerateEvent(std::string name, EventType type = EventType::UserDefined);
 
 		/// @brief This function is called to dispatch the event
 		/// @param dispatchType The event type to be dispatched
