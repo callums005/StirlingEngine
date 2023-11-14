@@ -23,8 +23,11 @@ public:
 	}
 	void OnUpdate()
 	{
-		if (StirlingEngine::Input::IsKeyDown(StirlingEngine::Key::KEY_SPACE))
-			StirlingEngine::Debug::Log("Space bar is pressed");
+		if (StirlingEngine::Input::IsKeyUpThisFrame(StirlingEngine::Key::KEY_SPACE))
+			StirlingEngine::Debug::Log("Space bar is released");
+
+		if (StirlingEngine::Input::IsMouseDown(StirlingEngine::MouseButton::MOUSE_BUTTON_LEFT))
+			StirlingEngine::Debug::Log("Mouse Down");
 	}
 	void OnExit() {}
 };

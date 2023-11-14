@@ -66,6 +66,18 @@ namespace StirlingEngine
 
 	void Input::Update()
 	{
+
+		for (int i = 0; i < 100; i++)
+		{
+			if (m_KeyStates[i] == InputState::Released)
+				m_KeyStates[i] = InputState::Up;
+		}
+
+		for (int i = 0; i < 6; i++)
+		{
+			if (m_MouseStates[i] == InputState::Released)
+				m_MouseStates[i] = InputState::Up;
+		}
 	}
 
 	bool Input::IsKeyDown(Key key)

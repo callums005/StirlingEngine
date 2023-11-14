@@ -94,6 +94,7 @@ namespace StirlingEngine
 			}
 
 			m_Window->Render();
+			Input::Update();
 		}
 
 		EventDispatcher::DispatchEvent(EventType::OnApplicationExit, "", true);
