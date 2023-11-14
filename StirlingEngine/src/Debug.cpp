@@ -1,4 +1,6 @@
-#include "../include/Debug.h"
+#include "Debug.h"
+
+#include <typeinfo>
 
 namespace StirlingEngine
 {
@@ -14,6 +16,8 @@ namespace StirlingEngine
 
 	void Debug::Log(const DebugLevel debugLevel, const char *fmt, ...)
 	{
+		std::ofstream crashFile;
+
 		const char *prefix = "";
 		const char *colour = "";
 
@@ -38,6 +42,11 @@ namespace StirlingEngine
 		case DebugLevel::Critical:
 			prefix = "[CRITICAL] ";
 			colour = "91";
+
+			crashFile.open("crash_report.txt", std::ios::app);
+			crashFile << fmt << std::endl;
+			crashFile.close();
+
 			break;
 		default:
 			Log(DebugLevel::Critical, "Invalid DebugLevel {%i}", (int)debugLevel);

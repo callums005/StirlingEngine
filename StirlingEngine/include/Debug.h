@@ -2,6 +2,8 @@
 
 #include <stdio.h>
 #include <stdarg.h>
+#include <fstream>
+#include <iostream>
 
 namespace StirlingEngine
 {
