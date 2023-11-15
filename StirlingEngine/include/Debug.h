@@ -19,7 +19,7 @@ namespace StirlingEngine
 	class Debug
 	{
 	public:
-		static void Log(const DebugLevel debugLevel, const char* fmt, ...);
-		static void Log(const char* fmt, ...);
+		static void Log(const DebugLevel debugLevel, const char *fmt, ...);
+		static void Log(const char *fmt, ...);
 	};
 }

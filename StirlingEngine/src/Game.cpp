@@ -4,40 +4,50 @@ namespace StirlingEngine
 {
 	Game::Game()
 	{
-		// Generate Events
-		EventDispatcher::GenerateEvent("OnApplicationStart", EventType::OnApplicationStart);
-		EventDispatcher::GenerateEvent("OnApplicationUpdate", EventType::OnApplicationUpdate);
-		EventDispatcher::GenerateEvent("OnApplicationExit", EventType::OnApplicationExit);
+		// Generate Core Events
+		EventDispatcher::GenerateEvent("OnApplicationStart", EventType::OnApplicationStart);   // 1
+		EventDispatcher::GenerateEvent("OnApplicationUpdate", EventType::OnApplicationUpdate); // 2
+		EventDispatcher::GenerateEvent("OnApplicationExit", EventType::OnApplicationExit);	   // 3
 
-		EventDispatcher::GenerateEvent("OnWindowClose", EventType::OnWindowClose);
-		EventDispatcher::GenerateEvent("OnWindowResize", EventType::OnWindowResize);
-		EventDispatcher::GenerateEvent("OnWindowMove", EventType::OnWindowMove);
+		EventDispatcher::GenerateEvent("OnWindowClose", EventType::OnWindowClose);	 // 4
+		EventDispatcher::GenerateEvent("OnWindowResize", EventType::OnWindowResize); // 5
+		EventDispatcher::GenerateEvent("OnWindowMove", EventType::OnWindowMove);	 // 6 // Currently Unused
 
-		EventDispatcher::GenerateEvent("OnMouseDown", EventType::OnMouseDown);
-		EventDispatcher::GenerateEvent("OnMouseUp", EventType::OnMouseUp);
-		EventDispatcher::GenerateEvent("OnMouseMove", EventType::OnMouseMove);
-		EventDispatcher::GenerateEvent("OnMouseScroll", EventType::OnMouseScroll);
+		EventDispatcher::GenerateEvent("OnMouseDown", EventType::OnMouseDown);	   // 7
+		EventDispatcher::GenerateEvent("OnMouseUp", EventType::OnMouseUp);		   // 8
+		EventDispatcher::GenerateEvent("OnMouseMove", EventType::OnMouseMove);	   // 9
+		EventDispatcher::GenerateEvent("OnMouseScroll", EventType::OnMouseScroll); // 10
 
-		EventDispatcher::GenerateEvent("OnKeyDown", EventType::OnKeyDown);
-		EventDispatcher::GenerateEvent("OnKeyUp", EventType::OnKeyUp);
+		EventDispatcher::GenerateEvent("OnKeyDown", EventType::OnKeyDown); // 11
+		EventDispatcher::GenerateEvent("OnKeyUp", EventType::OnKeyUp);	   // 12
 	}
 
 	Game::~Game() {}
 
 	void Game::Run()
 	{
+		// If the debug flag is set, it displays a UI for debugging a game
+		if (DebugUIFlag)
+		{
+			Debug::Log("Debug UI Flag set");
+		}
+
+		// Dispatch OnApplicationStart event before calling the OnStart method
 		EventDispatcher::DispatchEvent(EventType::OnApplicationStart, "", true);
 		OnStart();
 
+		// Sets up the input system defaulting variables ect.
 		Input::Init();
 
+		// Main game loop, only stops when the window is closed
 		while (m_Window->IsOpen())
 		{
+			// Dispatch the OnApplicationUpdate event before calling the OnUpdate method
 			EventDispatcher::DispatchEvent(EventType::OnApplicationUpdate, "", true);
 			OnUpdate();
 
+			// Event handling, creating a custom API for the SFML event system
 			sf::Event e;
-
 			while (m_Window->PollEvent(e))
 			{
 				switch (e.type)
@@ -88,15 +98,15 @@ namespace StirlingEngine
 					EventDispatcher::DispatchEvent(EventType::OnKeyUp);
 					break;
 				}
-
-				if (e.type == sf::Event::Closed)
-					m_Window->Close();
 			}
 
+			// Starts rendering the window
 			m_Window->Render();
+			// Updates the input states
 			Input::Update();
 		}
 
+		// Dispatched when the application is closed, called bfore the OnExit method
 		EventDispatcher::DispatchEvent(EventType::OnApplicationExit, "", true);
 		OnExit();
 	}
@@ -106,9 +116,13 @@ namespace StirlingEngine
 		return m_Window;
 	}
 
-	void Game::SetWindow()
+	//
+	void Game::SetWindow(unsigned int width, unsigned int height, std::string title, bool override)
 	{
-		m_Window = new Window(400, 400, "Hello World");
+		if (override)
+			m_Window = new Window(width, height, title);
+		else
+			Debug::Log(StirlingEngine::Warning, "Unable to create window called: \"%s\", you must set override to true", title.c_str());
 	}
 
 	std::pair<unsigned int, unsigned int> Game::GetWindowSize()

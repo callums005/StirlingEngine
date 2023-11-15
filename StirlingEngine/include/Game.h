@@ -4,6 +4,8 @@
 #include "Events/EventDispatcher.h"
 #include "Input.h"
 
+#include "Debug.h"
+
 namespace StirlingEngine
 {
 	class Game
@@ -18,10 +20,21 @@ namespace StirlingEngine
 		virtual void OnUpdate() = 0;
 		virtual void OnExit() = 0;
 
-		void SetWindow();
+		/// @brief Allows the game client to create the window
+		/// @param width Width of the window
+		/// @param height Height of the window
+		/// @param title Title of the window
+		void SetWindow(unsigned int width, unsigned int height, std::string title, bool override = true);
 
+		/// @brief Gets the window class
+		/// @return Window class
 		Window *GetWindow();
+
+		/// @brief Gets the window size
+		/// @return The size of the window
 		std::pair<unsigned int, unsigned int> GetWindowSize();
+
+		bool DebugUIFlag = false;
 
 	private:
 		Window *m_Window = nullptr;
