@@ -2,6 +2,7 @@
 
 namespace StirlingEngine
 {
+	/// @brief Stores information about the key that triggers the event.
 	struct KeyEvent
 	{
 		int KeyCode = -1;

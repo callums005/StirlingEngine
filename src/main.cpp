@@ -1,6 +1,6 @@
 #include "StirlingEngine.h"
 
-#include <iostream>
+#include "SEDataHandler.h"
 
 class Sandbox : public StirlingEngine::Game
 {
@@ -17,7 +17,9 @@ public:
 
 	void OnStart()
 	{
+		StirlingEngine::SEDataHandler *dataHandler = new StirlingEngine::SEDataHandler("res/TestEntity.see");
 	}
+
 	void OnUpdate()
 	{
 	}
