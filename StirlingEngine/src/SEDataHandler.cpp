@@ -4,7 +4,10 @@ namespace StirlingEngine
 {
 	SEDataHandler::SEDataHandler(std::string resPath)
 	{
-		std::string textLine;
+		std::string lineText;
+		std::stringstream stringStream;
+		std::string seg;
+		std::vector<std::string> segList;
 
 		std::ifstream resFile(resPath);
 
@@ -12,24 +15,25 @@ namespace StirlingEngine
 
 		LineTypes lineType;
 
-		while (std::getline(resFile, textLine))
+		while (std::getline(resFile, lineText))
 		{
+			stringStream = std::stringstream(lineText);
 			lineCount++;
 
 			lineType = LineTypes::Unknown;
 			int errCount = 0;
 
-			if (textLine.find("{") != std::string::npos)
+			if (lineText.find("{") != std::string::npos)
 				lineType = LineTypes::BlockStart;
 			else
 				errCount++;
 
-			if (textLine.find("}") != std::string::npos)
+			if (lineText.find("}") != std::string::npos)
 				lineType = LineTypes::BlockEnd;
 			else
 				errCount++;
 
-			if (textLine.find("=") != std::string::npos)
+			if (lineText.find("=") != std::string::npos)
 				lineType = LineTypes::Assignment;
 			else
 				errCount++;
@@ -48,12 +52,16 @@ namespace StirlingEngine
 			case LineTypes::BlockEnd:
 				break;
 			case LineTypes::Assignment:
-				int seperator = textLine.find(" ");
-				while (seperator != std::string::npos)
+				if (lineCount != 2)
+					break;
+					
+				while(std::getline(stringStream, seg, ' '))
 				{
-					textLine.substr();
-					seperator = textLine.find(" ");
+					seg.erase(std::remove_if(seg.begin(), seg.end(), std::isspace), seg.end());
+					segList.push_back(seg);
+					Debug::Log("%s", seg.c_str());
 				}
+
 				break;
 			default:
 				break;

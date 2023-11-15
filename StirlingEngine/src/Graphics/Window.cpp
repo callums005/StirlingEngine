@@ -25,7 +25,7 @@ namespace StirlingEngine
 
 	void Window::Render()
 	{
-		m_Window->clear(sf::Color::Red);
+		m_Window->clear(sf::Color::Black);
 
 		// Draw Stuff here
 

@@ -1,5 +1,5 @@
 Entity {
-	n TestEntity
+	name = TestEntity
 	tag = Default
 	components {
 		transform {
