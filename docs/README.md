@@ -1,5 +1,8 @@
 # Stirling Engine : 2D Documentation
 
+### [Getting Started](GettingStarted.md)
+A quick tutorial to get you started with the engine.
+
 ### [Debug](API/Debug.md)
 Display text to the console for debugging use.
 

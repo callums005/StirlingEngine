@@ -17,10 +17,16 @@ graph TD;
   Particle -->  Network("Networking Support");
 ```
 ## Getting Started
+
+### [Getting Started Guide](docs/GettingStarted.md)
+A quick tutorial to get you started with the engine.
+
+### [Documentation](docs/)
+Full documentation for the engine and API
+
 ### [Compiling Documentation](docs/COMPILING.md)
 A step-by-step documentation on compiling the Stirling Engine
-### [Documentation](docs/Manual/Documentation.md)
-Full documentation for the engine and API
+
 
 ## Contributing
 The Stirling Engine project would love your contribution, please read the [CONTRIBUTING.md](docs/CONTRIBUTING.md)
