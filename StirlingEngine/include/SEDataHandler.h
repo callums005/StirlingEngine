@@ -51,6 +51,7 @@ namespace StirlingEngine
 		std::vector<Scope> Scopes;
 
 		std::string GetValueFromScope(std::string scope, std::string identifier);
+		bool DoesScopeExist(std::string scope);
 
 	private:
 		void SplitIntoSegments(std::stringstream &ss, std::string &segment, std::vector<std::string> &segmentList, char character = ' ');

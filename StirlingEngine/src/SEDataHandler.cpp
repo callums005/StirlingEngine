@@ -219,4 +219,17 @@ namespace StirlingEngine
 
 		return "NULL";
 	}
+
+	bool SEDataHandler::DoesScopeExist(std::string scope)
+	{
+		bool result = false;
+
+		for (Scope sc : Scopes)
+		{
+			if (sc.identifer == scope)
+				return true;
+		}
+
+		return false;
+	}
 }
