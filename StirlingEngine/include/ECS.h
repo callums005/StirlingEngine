@@ -1,3 +1,3 @@
 #include "ECS/EntityManager.h"
 #include "ECS/Entity.hpp"
-#include "ECS/Components/Transform.h"
+#include "ECS/Components/cTransform.h"
