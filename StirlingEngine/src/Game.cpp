@@ -29,7 +29,7 @@ namespace StirlingEngine
 		// If the debug flag is set, it displays a UI for debugging a game
 		if (DebugUIFlag)
 		{
-			Debug::Log("Debug UI Flag set");
+			Debug::Log(DebugLevel::Debug, "Debug UI Flag set");
 		}
 
 		// Dispatch OnApplicationStart event before calling the OnStart method
@@ -121,7 +121,7 @@ namespace StirlingEngine
 	{
 		if (override)
 			m_Window = new Window(width, height, title);
-		else
+		else if (title != "Default Window Settings - Call SetWindow() in constructor")
 			Debug::Log(StirlingEngine::Warning, "Unable to create window called: \"%s\", you must set override to true", title.c_str());
 	}
 
