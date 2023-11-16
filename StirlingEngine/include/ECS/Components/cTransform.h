@@ -52,6 +52,11 @@ namespace StirlingEngine
 			Velocity.y = vely;
 		}
 
+		void System()
+		{
+			Position += Velocity;
+		}
+
 		std::string ToString()
 		{
 			std::string result = "";
