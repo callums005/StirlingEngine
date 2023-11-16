@@ -56,13 +56,13 @@ namespace StirlingEngine
 		{
 			std::string result = "";
 
-			result += "cTransform\n";
+			result += "cTransform :\t";
 			result += "Positon: ";
-			result += Position.ToString() + "\t";
+			result += Position.ToString() + " // ";
 			result += "Size: ";
-			result += Size.ToString() += "\t";
+			result += Size.ToString() + " // ";
 			result += "Velocity: ";
-			result += Velocity.ToString() += "\t";
+			result += Velocity.ToString();
 
 			return result;
 		}

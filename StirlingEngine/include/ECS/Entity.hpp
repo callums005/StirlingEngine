@@ -19,7 +19,8 @@ namespace StirlingEngine
 			SetName(m_DataHandler->GetValueFromScope("Entity", "name"));
 			SetTag(m_DataHandler->GetValueFromScope("Entity", "tag"));
 
-			Transform = new cTransform(m_DataHandler);
+			if (m_DataHandler->DoesScopeExist("transform"))
+				Transform = new cTransform(m_DataHandler);
 		}
 
 		~Entity()
@@ -69,17 +70,22 @@ namespace StirlingEngine
 			std::string id = std::to_string(m_Id);
 
 			result += "Entity: ";
-			result += id + "\n";
+			result += id + "\n\t";
 			result += "Name: ";
 			result += m_Name + "\t";
 			result += "Tag: ";
-			result += m_Tag + "\t";
+			result += m_Tag + "";
+
+			// *************************************** //
+			// ***			Transform   		   *** //
+			// *************************************** //
+			result += "\n\t{\t";
 
 			if (Transform != nullptr)
-			{
-				result += "\n\t{\t";
-				result += Transform->ToString() + "}";
-			}
+				result += Transform->ToString();
+
+			result += "\t}";
+			// *************************************** //
 
 			return result;
 		}

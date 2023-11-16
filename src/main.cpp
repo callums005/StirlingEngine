@@ -17,11 +17,8 @@ public:
 
 	void OnStart()
 	{
-		// StirlingEngine::SEDataHandler *dataHandler = new StirlingEngine::SEDataHandler("res/TestEntity.see");
-		// StirlingEngine::Debug::Log("%s", dataHandler->GetValueFromScope("transform/position", "x").c_str());
-
 		StirlingEngine::Entity *e = new StirlingEngine::Entity("res/TestEntity.see");
-		StirlingEngine::Debug::Log("Position X: %i | Position Y: %i", e->Transform->Position.x, e->Transform->Position.y);
+		StirlingEngine::Debug::Log("%s", e->ToString().c_str());
 	}
 
 	void OnUpdate()
