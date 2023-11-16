@@ -46,6 +46,11 @@ namespace StirlingEngine
 			m_Tag = tag;
 		}
 
+		void Destroy()
+		{
+			m_ToDelete = true;
+		}
+
 		unsigned int GetId()
 		{
 			return m_Id;
@@ -59,6 +64,11 @@ namespace StirlingEngine
 		std::string GetTag()
 		{
 			return m_Tag;
+		}
+
+		bool GetDeleteFlag()
+		{
+			return m_ToDelete;
 		}
 
 		SEDataHandler *m_DataHandler;
@@ -94,5 +104,6 @@ namespace StirlingEngine
 		unsigned int m_Id = 0;
 		std::string m_Name = "";
 		std::string m_Tag = "";
+		bool m_ToDelete = false;
 	};
 }
