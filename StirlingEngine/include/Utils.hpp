@@ -4,7 +4,5 @@
 
 namespace Utils
 {
-	void RemoveWhiteSpaceFromString(std::string& inp)
-	{
-	}
+
 }

@@ -18,6 +18,8 @@ public:
 	void OnStart()
 	{
 		StirlingEngine::SEDataHandler *dataHandler = new StirlingEngine::SEDataHandler("res/TestEntity.see");
+
+		StirlingEngine::Debug::Log("%s", dataHandler->GetValueFromScope("transform/position", "x").c_str());
 	}
 
 	void OnUpdate()
