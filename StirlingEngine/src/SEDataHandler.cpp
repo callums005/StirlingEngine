@@ -163,6 +163,12 @@ namespace StirlingEngine
 					break;
 				}
 
+				if (DoesScopeExist(segList[0]))
+				{
+					Debug::Log(DebugLevel::Error, "Entity (\"%s\") scopes must have unique identifiers at Line: %i.", resPath.c_str(), lineCount);
+					break;
+				}
+
 				Scopes.push_back(Scope(lineCount, currentScope == nullptr ? "" : currentScope->identifer, segList[0]));
 				currentScope = &Scopes.back();
 
