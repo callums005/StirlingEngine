@@ -48,5 +48,21 @@ namespace StirlingEngine
 			x -= rhs.x;
 			y -= rhs.y;
 		}
+
+		std::string ToString()
+		{
+			std::string result = "";
+
+			std::string xs = std::to_string(x);
+			std::string ys = std::to_string(y);
+
+			result += "Vector2f: [ X: ";
+			result += xs;
+			result += ", ";
+			result += "Y: ";
+			result += ys + " ]";
+
+			return result;
+		}
 	};
 }
