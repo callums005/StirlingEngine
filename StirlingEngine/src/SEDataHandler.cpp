@@ -116,7 +116,7 @@ namespace StirlingEngine
 		{
 			// Reset variables
 			seg = "";
-			segList = std::vector<std::string>();
+			segList.clear();
 			ltStream = std::stringstream(lineText);
 			lineType = LineTypes::Unknown;
 			int errCount = 0;
