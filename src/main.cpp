@@ -1,7 +1,5 @@
 #include "StirlingEngine.h"
 
-#include "SEDataHandler.h"
-
 class Sandbox : public StirlingEngine::Game
 {
 public:
@@ -17,7 +15,7 @@ public:
 
 	void OnStart()
 	{
-		StirlingEngine::Entity *e = new StirlingEngine::Entity("res/TestEntity.see");
+		StirlingEngine::Entity *e = StirlingEngine::EntityManager::CreateEntity("res/TestEntity.see");
 		StirlingEngine::Debug::Log("%s", e->ToString().c_str());
 	}
 

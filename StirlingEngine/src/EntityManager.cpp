@@ -9,6 +9,16 @@ namespace StirlingEngine
 	EntityVector EntityManager::m_RemBuffer;
 	EntityMap EntityManager::m_RemMap;
 
+	unsigned int EntityManager::m_EntityCount;
+
+	Entity *EntityManager::CreateEntity(const std::string resPath)
+	{
+		m_EntityCount++;
+		Entity *e = new Entity(resPath, m_EntityCount);
+		m_AddBuffer.push_back(e);
+		return e;
+	}
+
 	void EntityManager::HandleAddEntity()
 	{
 		for (Entity *entity : m_AddBuffer)
@@ -43,5 +53,46 @@ namespace StirlingEngine
 	{
 		HandleDeleteEntity();
 		HandleAddEntity();
+
+		for (Entity *entity : m_Entities)
+		{
+			if (!entity->IsEnabled())
+				continue;
+
+			if (entity->Transform)
+				entity->Transform->System();
+		}
+	}
+
+	EntityVector &EntityManager::GetEntities()
+	{
+		return m_Entities;
+	}
+
+	EntityVector &EntityManager::GetEntities(const std::string tag)
+	{
+		return m_EntityMap[tag];
+	}
+
+	Entity *EntityManager::GetEntityByID(unsigned int id)
+	{
+		for (Entity *entity : m_Entities)
+		{
+			if (entity->GetId() == id)
+				return entity;
+		}
+
+		return nullptr;
+	}
+
+	Entity *EntityManager::GetEntityByName(std::string name)
+	{
+		for (Entity *entity : m_Entities)
+		{
+			if (entity->GetName() == name)
+				return entity;
+		}
+
+		return nullptr;
 	}
 }

@@ -42,9 +42,9 @@ namespace StirlingEngine
 		// Main game loop, only stops when the window is closed
 		while (m_Window->IsOpen())
 		{
-			// Dispatch the OnApplicationUpdate event before calling the OnUpdate method
 			EventDispatcher::DispatchEvent(EventType::OnApplicationUpdate, "", true);
-			OnUpdate();
+
+			EntityManager::Update();
 
 			// Event handling, creating a custom API for the SFML event system
 			sf::Event e;
@@ -102,6 +102,9 @@ namespace StirlingEngine
 
 			// Starts rendering the window
 			m_Window->Render();
+
+			OnUpdate();
+
 			// Updates the input states
 			Input::Update();
 		}

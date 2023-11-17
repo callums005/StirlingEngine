@@ -14,10 +14,11 @@ namespace StirlingEngine
 	{
 	public:
 		static void Update();
-		static unsigned int CreateEntity(const std::string resourcePath);
+		static Entity *CreateEntity(const std::string resourcePath);
 		static EntityVector &GetEntities();
 		static EntityVector &GetEntities(const std::string tag);
-		static Entity *GetEntityByID(unsigned int);
+		static Entity *GetEntityByID(unsigned int id);
+		static Entity *GetEntityByName(std::string name);
 
 	private:
 		static void HandleDeleteEntity();

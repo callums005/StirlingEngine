@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Window.h"
+#include "ECS/EntityManager.h"
 #include "Events/EventDispatcher.h"
 #include "Input.h"
 
