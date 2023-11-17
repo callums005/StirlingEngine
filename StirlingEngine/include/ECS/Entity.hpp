@@ -12,13 +12,13 @@ namespace StirlingEngine
 	{
 	public:
 		Entity() {}
-		Entity(std::string entityFilePath)
+		Entity(std::string entityFilePath, unsigned int id)
 		{
 			m_DataHandler = new SEDataHandler(entityFilePath);
 
-			SetName(m_DataHandler->GetValueFromScope("Entity", "name"));
-			SetTag(m_DataHandler->GetValueFromScope("Entity", "tag"));
-
+			SetName(m_DataHandler->GetValueFromScope("Entity", "name") == "NULL" ? "Default" : m_DataHandler->GetValueFromScope("Entity", "name"));
+			SetTag(m_DataHandler->GetValueFromScope("Entity", "tag") == "NULL" ? "Default" : m_DataHandler->GetValueFromScope("Entity", "tag"));
+			SetId(id);
 			if (m_DataHandler->DoesScopeExist("transform"))
 				Transform = new cTransform(m_DataHandler);
 		}
@@ -51,6 +51,11 @@ namespace StirlingEngine
 			m_ToDelete = true;
 		}
 
+		void Enabled(bool enabled)
+		{
+			m_Enabled = enabled;
+		}
+
 		unsigned int GetId()
 		{
 			return m_Id;
@@ -69,6 +74,11 @@ namespace StirlingEngine
 		bool GetDeleteFlag()
 		{
 			return m_ToDelete;
+		}
+
+		bool IsEnabled()
+		{
+			return m_Enabled;
 		}
 
 		SEDataHandler *m_DataHandler;
@@ -105,5 +115,6 @@ namespace StirlingEngine
 		std::string m_Name = "";
 		std::string m_Tag = "";
 		bool m_ToDelete = false;
+		bool m_Enabled = true;
 	};
 }
